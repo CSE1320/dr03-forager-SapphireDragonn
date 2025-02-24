@@ -1,6 +1,5 @@
 import DashboardPage from './dashboard/page';  // Use relative path
 import Sandbox from './sandbox/page';  // Use relative path
-import 'semantic-ui-css/semantic.min.css';
 
 
 export default function Home() {

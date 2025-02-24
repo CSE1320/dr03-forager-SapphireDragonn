@@ -11,6 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      textShadow: {
+        'md': '0 2px 4px rgba(0, 0, 0, 0.8)',  // Custom shadow
+      },
     },
   },
   plugins: [],
