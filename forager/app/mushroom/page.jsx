@@ -11,6 +11,7 @@ export default function MushroomPage() {
   const[isClosable, setClosable] = useState(true);
   
   const mushroom1 = "image/death_cap.png"
+  const isOnBorder = false
 
   return (
     <div className="page">

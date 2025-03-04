@@ -21,6 +21,8 @@ Low Fidelity Prototype 2:
         - if the word "match" is included
         - if the warning symbol is in the box or not (and if it shows up to the left or right)
 
+
+--> see if there is some way of reducing repeated code
 */
 
 
@@ -40,50 +42,50 @@ const PercentageMatchComponent = ({percentage, backgroundStyling, isOnBorder}) =
     const rectangleStyling= `${backgroundRect} ${backgroundStyling}`;
     
     return (
-        // <div className={pillStyling}>
-        //     <div className="flex flex-row align-center items-center">
-        //         {/* warning icon */}
-        //         <ImageComponent styling={iconStylingWhite} src={iconSrcWhite} alt={iconAltWhite}/>
-        //         {/* percentage value */}
-        //         <div className="flex flex-row align-center items-center pr-2 pl-2">
-        //             <h2 className="text-white font-nunito text-sm">
-        //                 {percentage}
-        //             </h2>
-        //             <h2 className="text-white font-nunito text-sm">
-        //                 %
-        //             </h2>
-        //         </div>
-                
-        //         {/* "match" */}
-        //         <h2 className="text-white font-nunito text-sm">
-        //             Match
-        //         </h2>
-                
-        //     </div>
-        // </div>
         <div className="flex flex-row items-center">
-            <div className={rectangleStyling}>
-                <div className="flex flex-row align-center items-center">
-                    {/* percentage value */}
-                    <div className="flex flex-row align-center items-center pr-2 pl-2">
+            {isOnBorder ? (
+                // This block renders when isOnBorder is true
+                <div className={pillStyling}>
+                    <div className="flex flex-row align-center items-center">
+                        {/* warning icon */}
+                        <ImageComponent styling={iconStylingWhite} src={iconSrcWhite} alt={iconAltWhite} />
+                        {/* percentage value */}
+                        <div className="flex flex-row align-center items-center pr-2 pl-2">
+                            <h2 className="text-white font-nunito text-sm">
+                                {percentage}
+                            </h2>
+                            <h2 className="text-white font-nunito text-sm">
+                                %
+                            </h2>
+                        </div>
+                        {/* "match" */}
                         <h2 className="text-white font-nunito text-sm">
-                            {percentage}
+                            Match
                         </h2>
-                        <h2 className="text-white font-nunito text-sm">
-                            %
-                        </h2>
-                    </div>                    
+                    </div>
                 </div>
-            </div>
+            ) : (
+                // This block renders when isOnBorder is false
+                <div className={rectangleStyling}>
+                    <div className="flex flex-row align-center items-center">
+                        {/* percentage value */}
+                        <div className="flex flex-row align-center items-center pr-2 pl-2">
+                            <h2 className="text-white font-nunito text-sm">
+                                {percentage}
+                            </h2>
+                            <h2 className="text-white font-nunito text-sm">
+                                %
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            )}
             {/* warning icon */}
             <div className="pl-2">
-                <ImageComponent styling={iconStylingRed} src={iconSrcRed} alt={iconAltRed}/>
+                <ImageComponent styling={iconStylingRed} src={iconSrcRed} alt={iconAltRed} />
             </div>
         </div>
-        
-        
-
-    )
-}
+    );
+};
 
 export default PercentageMatchComponent;
