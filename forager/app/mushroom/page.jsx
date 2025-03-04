@@ -5,6 +5,7 @@ import Link from 'next/link';
 import NavBar from '../../components/NavBar';
 import WarningMessage from '../helperfunctions/warning_message';
 import PolaroidCard from '../helperfunctions/polaroid_card';
+import PercentageMatchComponent from '../helperfunctions/percentage_match';
 
 export default function MushroomPage() {
   const[isClosable, setClosable] = useState(true);
@@ -17,7 +18,17 @@ export default function MushroomPage() {
         <button>Go to Mushroom Comparison Page</button>
       </Link>
 
-      <PolaroidCard mushroomSrc={mushroom1}/>
+      {/* Percentage styling for top match card */}
+      <div className="relative">
+        <PolaroidCard mushroomSrc={mushroom1}/>
+        <div className="absolute top-1 left-4  origin-top-left scale-50">
+            <PercentageMatchComponent percentage="50" backgroundStyling="bg-red-500 bg-opacity-50" isOnBorder={true}/> 
+        </div>
+      </div>
+          
+
+
+    
 
       {/* <WarningMessage 
             msgHeading={"WARNING"} 

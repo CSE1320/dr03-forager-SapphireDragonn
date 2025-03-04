@@ -65,10 +65,11 @@ const WarningMessage = ({msgHeading, msgBody, closable}) => {
                     {/* Only render the closing button and closing logic if the component has been labeled as closeable. */}
                     {closable[0] && (
                         <div>
-                            <ButtonComponent    isState={closable[1]} 
-                                                setState={closable[2]} 
-                                                styling={iconStyling2}
-                                                stateValues={["open", "close"]}>
+                            <ButtonComponent    
+                                isState={closable[1]} 
+                                setState={closable[2]} 
+                                styling={iconStyling2}
+                                stateValues={["open", "close"]}>
                                 <ImageComponent 
                                     src={iconSrc2} 
                                     alt={iconAlt2} />
