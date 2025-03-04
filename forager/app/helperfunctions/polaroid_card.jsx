@@ -12,8 +12,16 @@ const PolaroidCard = ({mushroomSrc}) => {
     const warningAlt="A warning icon depicted as a red, fully-filled triangular icon with rounded corners with a white exclamation point inside.";
     
     return (
-        <div className="bg-green-500 w-32 h-40 shadow-md border">
-            <ImageComponent styling={mushroomStyling} src={mushroomSrc} alt={mushroomAlt}/>
+        <div className="relative bg-white w-32 h-40 shadow-md border">
+            <div className="absolute top-1 left-3  origin-top-left scale-50">
+                <PercentageMatchComponent percentage="97" backgroundStyling="bg-red-500" isOnBorder={true}/> 
+            </div>
+
+            <div className="flex justify-center pt-5">
+                <ImageComponent styling={mushroomStyling} src={mushroomSrc} alt={mushroomAlt}/>
+            </div>      
+            
+                  
         </div>
 
     )

@@ -19,11 +19,11 @@ export default function MushroomPage() {
 
       <PolaroidCard mushroomSrc={mushroom1}/>
 
-      <WarningMessage 
+      {/* <WarningMessage 
             msgHeading={"WARNING"} 
             msgBody={"This is a toxic species, proceed with caution."} 
-            closable={[true, isClosable, setClosable]} 
-          />
+            closable={[false, null, null]} 
+          /> */}
 
       {/* Display the popup only if it is set to "open" */}
       {isClosable && (
