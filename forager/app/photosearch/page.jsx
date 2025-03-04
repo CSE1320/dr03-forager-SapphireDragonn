@@ -1,14 +1,48 @@
+/*
+Low Fidelity:
+BASIC COMPONENTS: 
+- Base Image
+- Top Menu Bar of Icons
+- Bottom Menu Bar of Icons
+- Error messages
+
+Uses: 
+- Absolute and relative positioning due to needed overlap
+
+
+MEDIUM FIDELITY:
+- Currently, the top and bottom menu bars are separated out and state displays the focus-only element or the error message element
+- another potential version would have the error message separated out as a separate component and call it based on state
+- Or, the focus rectangle could be rendered as a default and state only controls whether the error message 
+  appears or does not appear
+*/
+
+/* 
+This page creates the camera page. By clicking on the camera icon, the error message is simulated. 
+Clicking on the camera icon again reveals the default view.
+*/
+
+
+
 "use client";  // Add this line at the top of the file
 // ISSUE WITH REACT RENDERING --> IS USE CLIENT CORRECT?
 
 import NavBar from '../../components/NavBar';
 import PhotoTopMenuPage from './top_menu';
 import PhotoBottomMenuPage from './bottom_menu';
+import ImageComponent from '../helperfunctions/image';
 import React, { useState } from 'react';
 
 const PhotoSearchPage = () => {
   //State for if you click the image
   const[isBadImage, setBadImage] = useState("good");
+  //const of possible values for button
+  const values=["good", ]
+
+  //image consts
+  const imageClassName="w-full h-full object-cover pb-[45px]"
+  const imageSrc="image/mushroom_behind_camera.png" 
+  const imageAlt="An image of a death cap mushroom in a pile of dirt and crumbled leaves. The mushroom has a white stalk and brown cap that is slightly peeling to reveal white skin below."
 
   //Error Message
   // NEED HELP WITH SHADOW
@@ -44,9 +78,7 @@ const PhotoSearchPage = () => {
 
   return (
     <div className="relative bg-white h-full w-full">
-      <img className="w-full h-full object-cover pb-[45px]" 
-           src="image/mushroom_behind_camera.png" 
-           alt="An image of a death cap mushroom in a pile of dirt and crumbled leaves. The mushroom has a white stalk and brown cap that is slightly peeling to reveal white skin below." />
+        <ImageComponent className={imageClassName} src={imageSrc} alt={imageAlt}/>
 
       <div className="absolute top-0 left-0 w-full">
         <PhotoTopMenuPage/>
