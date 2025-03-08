@@ -50,7 +50,7 @@ const WarningMessage = ({msgHeading, msgBody, closable}) => {
 
     
     return (
-        <div className="flex flex-col justify-center bg-red-500 w-72 h-auto p-3 rounded-lg">
+        <div className="flex flex-col justify-center bg-red-500 w-72 h-auto p-3 rounded-3xl">
             <div className="flex flex-row align-center items-center justify-between">
                 <div className="flex flex-row align-center items-center">
                     {/* warning icon */}

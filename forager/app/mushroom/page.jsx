@@ -1,15 +1,18 @@
 "use client";  // Add this line at the top of the file
-
 import React, { useState } from 'react';
 import Link from 'next/link';
 import NavBar from '../../components/NavBar';
 import WarningMessage from '../helperfunctions/warning_message';
 import PolaroidCard from '../helperfunctions/polaroid_card';
 import PercentageMatchComponent from '../helperfunctions/percentage_match';
+import FastFactsComponent from './fast_facts';
+import ReportErrorButton from './report_error';
+import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from '@/data/development';
 
 export default function MushroomPage() {
   const[isClosable, setClosable] = useState(true);
-  
+  const[isReportedError, setReportedError] = useState(false);
+
   const mushroom1 = "image/death_cap.png"
   const isOnBorder = false
 
@@ -46,6 +49,16 @@ export default function MushroomPage() {
           />
       )}
       <NavBar />
+
+      <div className="pt-6">
+        <FastFactsComponent errorState={[isReportedError, setReportedError]}/>
+      </div>
+
+      <div className="pt-6">
+        <ReportErrorButton/>
+      </div>
+
     </div>
+    
   );
 }
