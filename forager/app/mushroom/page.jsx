@@ -7,6 +7,7 @@ import PolaroidCard from '../helperfunctions/polaroid_card';
 import PercentageMatchComponent from '../helperfunctions/percentage_match';
 import FastFactsComponent from './fast_facts';
 import ReportErrorButton from './report_error';
+import CompareButton from './compare';
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from '@/data/development';
 
 export default function MushroomPage() {
@@ -56,6 +57,10 @@ export default function MushroomPage() {
 
       <div className="pt-6">
         <ReportErrorButton/>
+      </div>
+
+      <div className="pt-6">
+        <CompareButton/>
       </div>
 
     </div>
