@@ -48,7 +48,6 @@ const WarningMessage = ({msgHeading, msgBody, closable}) => {
     const iconSrc2="image/close_icon.png";
     const iconAlt2="A close icon depicted as a white x-shaped icon.";
 
-    
     return (
         <div className="flex flex-col justify-center bg-red-500 w-5/6 h-auto p-5 rounded-3xl">
             <div className="flex flex-row align-center items-center justify-between">
