@@ -16,6 +16,8 @@ const ButtonComponent = ({ isState, setState, styling, stateValues, children }) 
         else{ //disabled button
             setState(stateValues[2])
         }
+
+        console.log("Button clicked");
     }
 
     return (

@@ -129,6 +129,8 @@ Filters:
 /*
 Option 2 offers a better representation for the filters as it alows for Y, N, and disabled 
 without a separate array being needed
+
+Update: A "My collection" boolean was also added to 
 */
 
 // Two flavors of exporting:
@@ -141,6 +143,7 @@ var DeathCapMushroom = {
     isToxic: true,
     image: "image/death_cap.png",
     percentageMatchToDeathCap: 1.0,
+    inMyCollection: false,
     characteristics: {
       capShape: "Flat",
       capDiameter: "5-15",
@@ -185,6 +188,7 @@ var DeathCapMushroom = {
     isToxic: false,
     image: "image/paddy_straw.png",
     percentageMatchToDeathCap: 0.9,
+    inMyCollection: false,
     characteristics: {
       capShape: "Round",
       capDiameter: "4-12",
@@ -229,6 +233,7 @@ var DeathCapMushroom = {
     isToxic: true,
     image: "image/destroying_angel.png",
     percentageMatchToDeathCap: 0.8,
+    inMyCollection: false,
     characteristics: {
       capShape: "Flat",
       capDiameter: "5-12",
@@ -273,6 +278,7 @@ var DeathCapMushroom = {
     isToxic: false,
     image: "image/false_death_cap.png",
     percentageMatchToDeathCap: 0.7,
+    inMyCollection: false,
     characteristics: {
       capShape: "Flat",
       capDiameter: "5-15",
@@ -317,6 +323,7 @@ var DeathCapMushroom = {
     isToxic: false,
     image: "image/puffball.png",
     percentageMatchToDeathCap: 0.6,
+    inMyCollection: false,
     characteristics: {
       capShape: "Round",
       capDiameter: "5-15",

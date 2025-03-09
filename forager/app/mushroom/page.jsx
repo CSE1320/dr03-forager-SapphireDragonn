@@ -12,6 +12,7 @@ import ReportErrorButton from './report_error';
 import CompareButton from './compare';
 import AddToFavoritesButton from './add_to_favorites';
 import PageHeader from '../helperfunctions/page_header';
+import { useMushroomContext } from '../context/MushroomContext';
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from '@/data/development';
 
 export default function MushroomPage() {
@@ -19,6 +20,9 @@ export default function MushroomPage() {
   const[isReportedError, setReportedError] = useState(false);
   const[isFavorited, setFavorited] = useState(false)
   const[isMatchGoBack, setMatchGoBack] = useState(false)
+
+  //To add to Collection
+  const { mushrooms, toggleCollection } = useMushroomContext();
 
   const mushroomSize="w-32 h-40"
   const cardSize="w-36 h-48"
@@ -126,7 +130,9 @@ export default function MushroomPage() {
 
           {/* Favorites Button */}
           <div className="pt-3">
-            <AddToFavoritesButton favoriteStateValues={[isFavorited, setFavorited]}/>
+            <AddToFavoritesButton 
+              favoriteStateValues={[isFavorited, setFavorited]}
+            />
           </div>
         </div>
 

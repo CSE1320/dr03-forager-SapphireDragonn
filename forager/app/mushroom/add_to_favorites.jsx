@@ -1,13 +1,25 @@
-import react from "react";
+import React, { useEffect } from "react";
 import ImageComponent from '../helperfunctions/image';
-import ButtonComponent from "../helperfunctions/button";
+import ButtonComponent from "../helperfunctions/button"; // Import your ButtonComponent
+import { useMushroomContext } from '../context/MushroomContext';
+import { DeathCapMushroom } from "@/data/development";
 
-/*Main Polaroid Card match for a given mushroom with mushroom image and border*/
-const AddToFavoritesButton = ({favoriteStateValues}) => {
+const AddToFavoritesButton = ({ favoriteStateValues}) => {
+    const { toggleCollection } = useMushroomContext();
+
+    const favoriteButtonSrc="icons/icon_add_to_favorite.svg";
+    const favoriteButtonAlt="A button to add the mushroom to favorites represented as a green circular icon with a plus in the center.";
+    const favoriteButtonStyle="w-12 h-12";
+
+    useEffect(() => {
+        // Check if the button is clicked (state is true)
+        if (favoriteStateValues[0] === true) {
+          // If true, update the collection
+          toggleCollection(DeathCapMushroom);  // Call the context function to update the collection
+          console.log("Added to collection:", DeathCapMushroom);  // Log the action
+        }
+      }, [favoriteStateValues[0], toggleCollection, DeathCapMushroom]); // Dependency on button state change
     
-    const favoriteButtonSrc="icons/icon_add_to_favorite.svg"
-    const favoriteButtonAlt="A button to add the mushroom to favorites represented as a green circular icon with a plus in the center."
-    const favoriteButtonStyle="w-12 h-12"
 
     return (
         <div className="relative">
@@ -18,7 +30,8 @@ const AddToFavoritesButton = ({favoriteStateValues}) => {
                 stateValues={[true, false]}>
                 <ImageComponent 
                     src={favoriteButtonSrc} 
-                    alt={favoriteButtonAlt} />
+                    alt={favoriteButtonAlt} 
+                />
             </ButtonComponent>
         </div>
     )
