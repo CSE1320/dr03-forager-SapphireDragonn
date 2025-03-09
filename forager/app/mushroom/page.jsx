@@ -11,7 +11,7 @@ import FastFactsComponent from './fast_facts';
 import ReportErrorButton from './report_error';
 import CompareButton from './compare';
 import AddToFavoritesButton from './add_to_favorites';
-import MatchResultsHeader from './match_results_header';
+import PageHeader from '../helperfunctions/page_header';
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from '@/data/development';
 
 export default function MushroomPage() {
@@ -72,7 +72,7 @@ export default function MushroomPage() {
         {/* Page Header */}
         <div className="overflow-hidden h-28 relative">
           <div className="absolute bottom-0 w-full">
-            <MatchResultsHeader MatchStateValues={[isMatchGoBack, setMatchGoBack]} />
+            <PageHeader HeaderStateValues={[isMatchGoBack, setMatchGoBack]} Text="Match Results" />
           </div>
         </div>
 

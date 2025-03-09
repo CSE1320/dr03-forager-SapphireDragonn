@@ -151,7 +151,7 @@ var DeathCapMushroom = {
       stemShape: "Slender",
       stemColor: "White",
       stemRing: "Present",
-      habitat: "Oak, Beech, and Chestnut Trees",
+      habitat: "Near Oak, Beech",
       generalDescription: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis nascetur nam ullamcorper, imperdiet facilisi et parturient. Ullamcorper lacinia suspendisse laoreet enim, imperdiet integer. Arcu mus natoque; placerat facilisis ultricies sodales phasellus. Non hac lacinia neque blandit accumsan. Accumsan senectus accumsan blandit facilisi augue aptent. Massa commodo convallis; urna varius aliquet diam. Felis facilisi mi varius aliquet himenaeos nunc sociosqu habitant. Risus a a tempus habitant vel egestas ante id felis."
     },
     filters: {
