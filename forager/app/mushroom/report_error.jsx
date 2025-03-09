@@ -5,7 +5,6 @@ import ImageComponent from '../helperfunctions/image';
 /*Report Error Button*/
 
 export default function ReportErrorButton(errorState) {
-    const errorStateStyling="bg-red-500 w-72 h-auto p-3 rounded-3xl"
     const reportAlt="A report error icon represented as a white arrow opening to the left"
     const reportSrc="icons/icon_forward_arrow.svg"
     const reportStyling="h-5"

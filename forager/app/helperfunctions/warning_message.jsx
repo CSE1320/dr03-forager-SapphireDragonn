@@ -41,22 +41,22 @@ Warning message component for closeable popups and general warnings
 */
 
 const WarningMessage = ({msgHeading, msgBody, closable}) => {
-    const iconStyling="w-5 h-5";
+    const iconStyling="w-7 h-7";
     const iconSrc="icons/icon_warning.svg";
     const iconAlt="A warning icon depicted as a white triangular icon with rounded corners with a white exclamation point inside.";
-    const iconStyling2="w-5 h-5";
+    const iconStyling2="w-7 h-7";
     const iconSrc2="image/close_icon.png";
     const iconAlt2="A close icon depicted as a white x-shaped icon.";
 
     
     return (
-        <div className="flex flex-col justify-center bg-red-500 w-72 h-auto p-3 rounded-3xl">
+        <div className="flex flex-col justify-center bg-red-500 w-5/6 h-auto p-5 rounded-3xl">
             <div className="flex flex-row align-center items-center justify-between">
                 <div className="flex flex-row align-center items-center">
                     {/* warning icon */}
                     <ImageComponent styling={iconStyling} src={iconSrc} alt={iconAlt}/>
                     {/* message header */}
-                    <h1 className="font-bold text-white font-nunito text-md pl-3">
+                    <h1 className="font-bold text-white font-nunito text-xl pl-3">
                         {msgHeading}
                     </h1>
                 </div>
@@ -82,7 +82,7 @@ const WarningMessage = ({msgHeading, msgBody, closable}) => {
             </div>
             <div className="pt-1">
                 {/* message body */}
-                <p className="text-white font-nunito text-sm">
+                <p className="text-white font-nunito text-l">
                     {msgBody}
                 </p>
             </div>

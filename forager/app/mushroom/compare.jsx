@@ -10,15 +10,18 @@ export default function CompareButton() {
     const compareStyling="h-5"
 
     return (
-    <div className="flex flex-row w-40 justify-between  h-auto p-3 rounded-xl">
+    <div className="flex flex-row flex-end items-center">
         <h1 className="font-nunito text-base text-gray-500">
             Compare
         </h1>
+        <div className="pl-4">
+            <ImageComponent 
+                styling={compareStyling}
+                src={compareSrc} 
+                alt={compareAlt} />
 
-        <ImageComponent 
-            styling={compareStyling}
-            src={compareSrc} 
-            alt={compareAlt} />
+        </div>
+        
     </div>
     );
 }

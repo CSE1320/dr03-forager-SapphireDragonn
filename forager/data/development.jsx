@@ -139,7 +139,7 @@ var DeathCapMushroom = {
       scientificName: "Amanita phalloides",
     },
     isToxic: true,
-    image: "image/death_cap",
+    image: "image/death_cap.png",
     percentageMatchToDeathCap: 1.0,
     characteristics: {
       capShape: "Flat",
@@ -179,11 +179,11 @@ var DeathCapMushroom = {
   
   var PaddyStrawMushroom = {
     names: {
-      commonName: "Paddy Straw Mushroom",
+      commonName: "Paddy Straw",
       scientificName: "Volvariella volvacea",
     },
     isToxic: false,
-    image: "image/paddy_straw",
+    image: "image/paddy_straw.png",
     percentageMatchToDeathCap: 0.9,
     characteristics: {
       capShape: "Round",
@@ -227,7 +227,7 @@ var DeathCapMushroom = {
       scientificName: "Amanita bisporigera",
     },
     isToxic: true,
-    image: "image/destroying_angel",
+    image: "image/destroying_angel.png",
     percentageMatchToDeathCap: 0.8,
     characteristics: {
       capShape: "Flat",
@@ -271,7 +271,7 @@ var DeathCapMushroom = {
       scientificName: "Amanita citrina",
     },
     isToxic: false,
-    image: "image/false_death_cap",
+    image: "image/false_death_cap.png",
     percentageMatchToDeathCap: 0.7,
     characteristics: {
       capShape: "Flat",
@@ -311,11 +311,11 @@ var DeathCapMushroom = {
   
   var PuffballMushroom = {
     names: {
-      commonName: "Puffball Mushroom",
+      commonName: "Puffball",
       scientificName: "Lycoperdon perlatum",
     },
     isToxic: false,
-    image: "image/puffball",
+    image: "image/puffball.png",
     percentageMatchToDeathCap: 0.6,
     characteristics: {
       capShape: "Round",

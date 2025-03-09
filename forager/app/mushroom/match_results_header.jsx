@@ -8,7 +8,7 @@ const MatchResultsHeader = ({ MatchStateValues }) => {
     const backAlt = "A warning icon depicted as a white triangular icon with rounded corners with a white exclamation point inside.";
 
     return (
-        <div className="flex items-end bg-emerald-700 w-full h-56 pb-5 pl-6 pr-6 rounded-3xl">
+        <div className="flex items-end bg-emerald-700 w-full h-56 pb-5 pl-6 pr-8 rounded-3xl">
             <div className="flex w-full items-center justify-between">
                 <ButtonComponent    
                     isState={MatchStateValues[0]} 
@@ -20,7 +20,7 @@ const MatchResultsHeader = ({ MatchStateValues }) => {
                         alt={backAlt} />
                 </ButtonComponent>
 
-                <h1 className="text-white font-nunito text-4xl flex-grow text-center">
+                <h1 className="text-white font-nunito text-4xl mx-auto">
                     Match Results
                 </h1>
             </div>

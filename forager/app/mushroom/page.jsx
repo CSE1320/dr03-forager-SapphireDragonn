@@ -20,65 +20,171 @@ export default function MushroomPage() {
   const[isFavorited, setFavorited] = useState(false)
   const[isMatchGoBack, setMatchGoBack] = useState(false)
 
+  const mushroomSize="w-32 h-40"
+  const cardSize="w-36 h-48"
+
+  const MushroomMatchesArray = [{
+                                  id: PaddyStrawMushroom.names.scientificName,
+                                  mushroomSrc: PaddyStrawMushroom.image, 
+                                  name: PaddyStrawMushroom.names.commonName,
+                                  percentage: 90, 
+                                  backgroundStyling: "bg-green-500",
+                                  isOnBorder: false,
+                                  mushroomSizing: mushroomSize,
+                                  cardSizing: cardSize},
+                                {
+                                  id: DestroyingAngelMushroom.names.scientificName,
+                                  mushroomSrc: DestroyingAngelMushroom.image,
+                                  name: DestroyingAngelMushroom.names.commonName, 
+                                  percentage: 80, 
+                                  backgroundStyling: "bg-red-500",
+                                  isOnBorder: false,
+                                  mushroomSizing: mushroomSize,
+                                  cardSizing: cardSize},
+                                {
+                                  id: FalseDeathCapMushroom.names.scientificName,
+                                  mushroomSrc: FalseDeathCapMushroom.image, 
+                                  name: FalseDeathCapMushroom.names.commonName, 
+                                  percentage: 70, 
+                                  backgroundStyling: "bg-red-500",
+                                  isOnBorder: false,
+                                  mushroomSizing: mushroomSize,
+                                  cardSizing: cardSize},
+                                {
+                                  id: PuffballMushroom.names.scientificName,
+                                  mushroomSrc: PuffballMushroom.image, 
+                                  name: PuffballMushroom.names.commonName,
+                                  percentage: 60, 
+                                  backgroundStyling: "bg-green-500",
+                                  isOnBorder: false,
+                                  mushroomSizing: mushroomSize,
+                                  cardSizing: cardSize}]
+
+
+
 
   const mushroom1 = "image/death_cap.png"
   const isOnBorder = false
 
   return (
     <div className="page">
-      <Link href="/comparison">
-        <button>Go to Mushroom Comparison Page</button>
-      </Link>
+      <div className="flex flex-col">
+        {/* Page Header */}
+        <div className="overflow-hidden h-28 relative">
+          <div className="absolute bottom-0 w-full">
+            <MatchResultsHeader MatchStateValues={[isMatchGoBack, setMatchGoBack]} />
+          </div>
+        </div>
 
-      <div className="pt-3">
-        <MatchResultsHeader MatchStateValues={[isMatchGoBack, setMatchGoBack]}/>
-      </div>
+        {/* Report an error with the result */}
+        <div className="flex flex-row justify-between items-center pl-9 pr-9 pt-4">
+          <p className="text-gray-500 font-nunito text-sm">
+            Not what you expected?
+          </p>
+          <ReportErrorButton/>
+        </div>
 
-      <div className="pt-3">
-        <AddToFavoritesButton favoriteStateValues={[isFavorited, setFavorited]}/>
-      </div>
-
-      {/* Percentage styling for top match card */}
-      <div className="pt-3">
-        <MainPolaroidComponent mushroomSrc={mushroom1} percentage="50" backgroundStyling="bg-red-500" isOnBorder={true}/>
-      </div>
-
-      <div className="pt-3 pb-3">
-        <PolaroidMushroomMatch mushroomSrc={mushroom1} percentage="50" backgroundStyling="bg-red-500" isOnBorder={true}/>
-      </div>
-          
-
-
-    
-
-      {/* <WarningMessage 
-            msgHeading={"WARNING"} 
-            msgBody={"This is a toxic species, proceed with caution."} 
-            closable={[false, null, null]} 
-          /> */}
-
-      {/* Display the popup only if it is set to "open" */}
-      {isClosable && (
+        {/* Toxic Species Warning Message */}
+        <div className="flex justify-center pt-4">
           <WarningMessage 
-            msgHeading={"ATTENTION"} 
-            msgBody={"Our system can make mistakes! Verify important information and use your judgment."} 
-            closable={[true, isClosable, setClosable]} 
+                msgHeading={"WARNING"} 
+                msgBody={"This is a toxic species, proceed with caution."} 
+                closable={[false, null, null]} 
           />
-      )}
-      <NavBar />
+        </div>
 
-      <div className="pt-6">
-        <FastFactsComponent errorState={[isReportedError, setReportedError]}/>
+        {/* Button to Link to Compare Page */}
+        <div className="flex justify-end pt-4 pr-9">
+          <Link href="/comparison">
+            <CompareButton/>
+          </Link>
+        </div>
+
+        {/* Polaroid styling for Death Cap */}
+        <div className="flex justify-center pt-4">
+          <MainPolaroidComponent 
+            mushroomSrc={mushroom1} 
+            percentage="50" 
+            backgroundStyling="bg-red-500" 
+            isOnBorder={true} 
+            mushroomSizing="w-72 h-80"
+            cardSizing="w-80 h-96"/>
+        </div>
+
+
+        {/* Common and Scientific Mushroom Name and favorites button*/}
+        <div className="flex flex-row justify-between pt-4 pl-9 pr-9">
+          {/* Mushroom Names */}
+          <div className="flex flex-col">
+            <h1 className="text-black font-nunito text-2xl font-bold">
+              {DeathCapMushroom.names.commonName}
+            </h1>
+            <h1 className="text-black font-nunito text-xl italic">
+              {DeathCapMushroom.names.scientificName}
+            </h1>
+          </div>
+
+          {/* Favorites Button */}
+          <div className="pt-3">
+            <AddToFavoritesButton favoriteStateValues={[isFavorited, setFavorited]}/>
+          </div>
+        </div>
+
+        {/* Fast Facts About Mushroom */}
+        <div className="pt-6 flex justify-center">
+          <FastFactsComponent errorState={[isReportedError, setReportedError]}/>
+        </div>
+
+        {/* Mushroom General Description */}
+        <div className="flex pt-6 pl-9 pr-9 justify-center items-center">
+          <h1 className="text-black font-nunito text-md">
+            {DeathCapMushroom.characteristics.generalDescription}
+          </h1>
+        </div>
+        
+
+        {/* Similar Matches */}
+        <div className="flex justify-center pt-6">
+          <h1 className="text-black font-nunito text-2xl font-bold">
+            Similar Matches
+          </h1>
+        </div>
+        
+        {/* List of Mushroom Matches */}
+        <div className="justify-center flex pt-6 pb-20 w-full pl-9 pr-9">
+          <ul className="flex flex-wrap gap-6">
+            {MushroomMatchesArray.map(mushroom => (
+              <PolaroidMushroomMatch
+                key={mushroom.id}
+                mushroomSrc={mushroom.mushroomSrc}
+                mushroomTitle={mushroom.name}
+                percentage={mushroom.percentage}
+                backgroundStyling={mushroom.backgroundStyling}
+                isOnBorder={mushroom.isOnBorder}
+                mushroomSizing={mushroom.mushroomSizing}
+                cardSizing={mushroom.cardSizing}
+              />
+            ))}
+          </ul>
+        </div>
+            
+            
+        <NavBar />
+
+        {/* Error Popup: Display the error popup only if it is set to "open" */}
+        {isClosable && (
+          <div className="absolute flex align-center w-full h-full bg-white bg-opacity-10 backdrop-blur-lg ">
+            <div className="relative flex justify-center items-center">
+              <WarningMessage
+                msgHeading={"ATTENTION"}
+                msgBody={"Our system can make mistakes! Verify important information and use your judgment."}
+                closable={[true, isClosable, setClosable]}
+              />
+            </div>
+          </div>
+        )}
+
       </div>
-
-      <div className="pt-6">
-        <ReportErrorButton/>
-      </div>
-
-      <div className="pt-6">
-        <CompareButton/>
-      </div>
-
     </div>
     
   );
