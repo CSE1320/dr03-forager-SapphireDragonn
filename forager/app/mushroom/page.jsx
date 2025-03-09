@@ -10,11 +10,16 @@ import PercentageMatchComponent from '../helperfunctions/percentage_match';
 import FastFactsComponent from './fast_facts';
 import ReportErrorButton from './report_error';
 import CompareButton from './compare';
+import AddToFavoritesButton from './add_to_favorites';
+import MatchResultsHeader from './match_results_header';
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from '@/data/development';
 
 export default function MushroomPage() {
   const[isClosable, setClosable] = useState(true);
   const[isReportedError, setReportedError] = useState(false);
+  const[isFavorited, setFavorited] = useState(false)
+  const[isMatchGoBack, setMatchGoBack] = useState(false)
+
 
   const mushroom1 = "image/death_cap.png"
   const isOnBorder = false
@@ -24,6 +29,14 @@ export default function MushroomPage() {
       <Link href="/comparison">
         <button>Go to Mushroom Comparison Page</button>
       </Link>
+
+      <div className="pt-3">
+        <MatchResultsHeader MatchStateValues={[isMatchGoBack, setMatchGoBack]}/>
+      </div>
+
+      <div className="pt-3">
+        <AddToFavoritesButton favoriteStateValues={[isFavorited, setFavorited]}/>
+      </div>
 
       {/* Percentage styling for top match card */}
       <div className="pt-3">
