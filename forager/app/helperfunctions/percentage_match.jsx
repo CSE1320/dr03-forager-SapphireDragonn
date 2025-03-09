@@ -27,18 +27,18 @@ Low Fidelity Prototype 2:
 
 
 const PercentageMatchComponent = ({percentage, backgroundStyling, isOnBorder}) => {
-    const iconStylingWhite="w-3 h-3";
+    const iconStylingWhite="w-6 h-6";
     const iconSrcWhite="icons/icon_warning.svg";
     const iconAltWhite="A warning icon depicted as a white outlined triangular icon with rounded corners with a white exclamation point inside.";
 
-    const iconStylingRed="w-7 h-7";
+    const iconStylingRed="w-11 h-11";
     const iconSrcRed="icons/icon_red_warning.svg";
     const iconAltRed="A warning icon depicted as a solid red triangular icon with rounded corners with a white exclamation point inside.";
 
-    const background="flex flex-col items-center justify-center w-32 pt-1 pb-1 h-auto rounded-full"
+    const background="flex flex-col items-center justify-center w-48 pt-1 pb-1 h-auto rounded-full"
     const pillStyling= `${background} ${backgroundStyling}`;
 
-    const backgroundRect="flex flex-col items-center justify-center w-10 h-auto pt-1 pb-1 rounded-lg"
+    const backgroundRect="flex flex-col items-center justify-center w-16 h-auto pt-1 pb-1 rounded-lg"
     const rectangleStyling= `${backgroundRect} ${backgroundStyling}`;
     
     return (
@@ -51,39 +51,43 @@ const PercentageMatchComponent = ({percentage, backgroundStyling, isOnBorder}) =
                         <ImageComponent styling={iconStylingWhite} src={iconSrcWhite} alt={iconAltWhite} />
                         {/* percentage value */}
                         <div className="flex flex-row align-center items-center pr-2 pl-2">
-                            <h2 className="text-white font-nunito text-sm">
+                            <h2 className="text-white font-nunito text-2xl">
                                 {percentage}
                             </h2>
-                            <h2 className="text-white font-nunito text-sm">
+                            <h2 className="text-white font-nunito text-2xl">
                                 %
                             </h2>
                         </div>
                         {/* "match" */}
-                        <h2 className="text-white font-nunito text-sm">
+                        <h2 className="text-white font-nunito text-2xl">
                             Match
                         </h2>
                     </div>
                 </div>
             ) : (
-                // This block renders when isOnBorder is false
-                <div className={rectangleStyling}>
-                    <div className="flex flex-row align-center items-center">
-                        {/* percentage value */}
-                        <div className="flex flex-row align-center items-center pr-2 pl-2">
-                            <h2 className="text-white font-nunito text-sm">
-                                {percentage}
-                            </h2>
-                            <h2 className="text-white font-nunito text-sm">
-                                %
-                            </h2>
+                <div className="flex flex-row">
+                    {/* // This block renders when isOnBorder is false */}
+                    <div className={rectangleStyling}>
+                        <div className="flex flex-row align-center items-center">
+                            {/* percentage value */}
+                            <div className="flex flex-row align-center items-center pr-2 pl-2">
+                                <h2 className="text-white font-nunito text-2xl">
+                                    {percentage}
+                                </h2>
+                                <h2 className="text-white font-nunito text-2xl">
+                                    %
+                                </h2>
+                            </div>
                         </div>
+                    </div>
+
+                    {/* warning icon */}
+                    <div className="pl-2">
+                        <ImageComponent styling={iconStylingRed} src={iconSrcRed} alt={iconAltRed} />
                     </div>
                 </div>
             )}
-            {/* warning icon */}
-            <div className="pl-2">
-                <ImageComponent styling={iconStylingRed} src={iconSrcRed} alt={iconAltRed} />
-            </div>
+            
         </div>
     );
 };

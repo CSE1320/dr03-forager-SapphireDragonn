@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import NavBar from '../../components/NavBar';
 import WarningMessage from '../helperfunctions/warning_message';
-import PolaroidCard from '../helperfunctions/polaroid_card';
+import PolaroidCard from '../helperfunctions/basic_polaroid';
+import PolaroidMushroomMatch from '../helperfunctions/polaroid_mushroom_match';
+import MainPolaroidComponent from '../helperfunctions/main_polaroid_for_page';
 import PercentageMatchComponent from '../helperfunctions/percentage_match';
 import FastFactsComponent from './fast_facts';
 import ReportErrorButton from './report_error';
@@ -24,11 +26,12 @@ export default function MushroomPage() {
       </Link>
 
       {/* Percentage styling for top match card */}
-      <div className="relative">
-        <PolaroidCard mushroomSrc={mushroom1}/>
-        <div className="absolute top-1 left-4  origin-top-left scale-50">
-            <PercentageMatchComponent percentage="50" backgroundStyling="bg-red-500 bg-opacity-50" isOnBorder={true}/> 
-        </div>
+      <div className="pt-3">
+        <MainPolaroidComponent mushroomSrc={mushroom1} percentage="50" backgroundStyling="bg-red-500" isOnBorder={true}/>
+      </div>
+
+      <div className="pt-3 pb-3">
+        <PolaroidMushroomMatch mushroomSrc={mushroom1} percentage="50" backgroundStyling="bg-red-500" isOnBorder={true}/>
       </div>
           
 
