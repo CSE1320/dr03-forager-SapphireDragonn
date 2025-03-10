@@ -7,6 +7,7 @@ SID = 1002052101
 EMAIL = gxk2101@mavs.uta.edu
 SEMESTER = SPRING2025
 PROJECT=PROJ03
+YOUTUBE=https://www.youtube.com/watch?v=rWgZeT3VDLY
  
 
 ####### DO NOT EDIT BELOW THIS LINE!!! #########
@@ -15,6 +16,7 @@ author:
 	@echo $(SID)
 	@echo $(EMAIL)
 	@echo $(SEMESTER)
+	@echo $(YOUTUBE)
 
 submit:
 submit:
