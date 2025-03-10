@@ -2,17 +2,17 @@
 
 import React, { useState } from 'react';
 import NavBar from '../../components/NavBar';
-import WarningMessage from '../helperfunctions/warning_message';
-import PageHeader from '../helperfunctions/page_header';
-import ButtonComponent from '../helperfunctions/button';
+import WarningMessage from '../../components/warning_message';
+import PageHeader from '../../components/page_header';
+import ButtonComponent from '../../components/button';
 import Link from 'next/link';
-import MainPolaroidComponent from '../helperfunctions/main_polaroid_for_page';
-import PolaroidMushroomMatch from '../helperfunctions/polaroid_mushroom_match';
-import PolaroidCard from '../helperfunctions/basic_polaroid';
+import MainPolaroidComponent from '../../components/main_polaroid_for_page';
+import PolaroidMushroomMatch from '../../components/polaroid_mushroom_match';
+import PolaroidCard from '../../components/mushroom_card';
 import { DeathCapMushroom } from '@/data/development';
-import ImageComponent from '../helperfunctions/image';
-import PercentageMatchComponent from '../helperfunctions/percentage_match';
-import ComparisonTable from './characteristics_comparison_table';
+import ImageComponent from '../../components/image';
+import PercentageMatchComponent from '../../components/percentage_match';
+import ComparisonTable from '../../components/characteristics_comparison_table';
 
 export default function MushroomComparisonPage() {
 

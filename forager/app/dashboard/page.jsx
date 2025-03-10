@@ -1,12 +1,12 @@
 "use client";
 
 import NavBar from '../../components/NavBar'; // Adjust the path as necessary
-import SearchBarComponent from './searchbar';
+import SearchBarComponent from '../../components/search';
 import React, { useState, useEffect } from 'react';
-import FilterComponent from './filter_button';
-import FilterPage from './filter_page';
+import FilterComponent from '../../components/filter_button';
+import FilterPage from '../../components/filter_settings';
 import MainDashboardPage from './main_dashboard_content';
-import ImageComponent from '../helperfunctions/image';
+import ImageComponent from '../../components/image';
 
 /* 
 Filter button when clicked should have a state that when clicked is set to open

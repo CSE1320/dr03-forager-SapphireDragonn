@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import ImageComponent from '../helperfunctions/image';
-import ButtonComponent from "../helperfunctions/button"; // Import your ButtonComponent
+import ImageComponent from '../../components/image';
+import ButtonComponent from "../../components/button"; // Import your ButtonComponent
 import { useMushroomContext } from '../context/MushroomContext';
 import { DeathCapMushroom } from "@/data/development";
 

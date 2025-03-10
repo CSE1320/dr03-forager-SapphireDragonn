@@ -1,7 +1,7 @@
 import react from "react";
-import ImageComponent from '../helperfunctions/image';
+import ImageComponent from './image';
 import PercentageMatchComponent from "./percentage_match";
-import PolaroidCard from "./basic_polaroid";
+import PolaroidCard from "./mushroom_card";
 
 /*Main Polaroid Card match for a given mushroom with mushroom image and border*/
 const MainPolaroidComponent = ({mushroomSrc, percentage, backgroundStyling, isOnBorder, mushroomSizing, cardSizing}) => {

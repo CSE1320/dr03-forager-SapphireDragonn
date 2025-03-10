@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import ButtonComponent from "../helperfunctions/button";
-import ImageComponent from "../helperfunctions/image";
-import SearchBarComponent from "./searchbar";
-import FilterComponent from "./filter_button";
-import PolaroidMushroomMatch from "../helperfunctions/polaroid_mushroom_match";
-import PolaroidCard from "../helperfunctions/basic_polaroid";
+import ButtonComponent from "../../components/button";
+import ImageComponent from "../../components/image";
+import SearchBarComponent from "../../components/search";
+import FilterComponent from "../../components/filter_button";
+import PolaroidMushroomMatch from "../../components/polaroid_mushroom_match";
+import PolaroidCard from "../../components/mushroom_card";
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from "@/data/development";
 
 const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, appliedFilters}) => {

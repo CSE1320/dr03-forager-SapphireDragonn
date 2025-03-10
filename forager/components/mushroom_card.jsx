@@ -1,9 +1,9 @@
 import react from "react";
-import ImageComponent from '../helperfunctions/image';
+import ImageComponent from './image';
 import PercentageMatchComponent from "./percentage_match";
 
 /*Basic Polaroid Card with mushroom image and border*/
-const PolaroidCard = ({mushroomSrc, mushroomSizing, cardSizing, isOnBorder}) => {
+const MushroomCard = ({mushroomSrc, mushroomSizing, cardSizing, isOnBorder}) => {
     const mushroomAlt="An image of a death cap mushroom: a white, short mushroom with a wide, rounded rim and wide, ruffled stalk. The mushroom is surrounded by a pile of shriveled, brown leaves."
 
     const warningStyling="w-3 h-3";
@@ -28,4 +28,4 @@ const PolaroidCard = ({mushroomSrc, mushroomSizing, cardSizing, isOnBorder}) => 
     )
 }
 
-export default PolaroidCard;
+export default MushroomCard;

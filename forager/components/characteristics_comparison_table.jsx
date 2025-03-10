@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DeathCapMushroom } from "@/data/development";
-import ImageComponent from "../helperfunctions/image";
+import ImageComponent from "./image";
 
 const ComparisonTable = ({YourMushroomInfoState}) => {
     

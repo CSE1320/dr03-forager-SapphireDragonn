@@ -1,5 +1,5 @@
 import React from "react";
-import ImageComponent from "../helperfunctions/image";
+import ImageComponent from "./image";
 
 /*This displays the top menu bar (back button and flash button)*/
 

@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonComponent from "../helperfunctions/button";
-import ImageComponent from "../helperfunctions/image";
+import ButtonComponent from "./button";
+import ImageComponent from "./image";
 
 /*This displays the bottom menu bar (photo import, photo clicking button, and reverse camera button)*/
 

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import ButtonComponent from "../helperfunctions/button";
-import ImageComponent from "../helperfunctions/image";
+import ButtonComponent from "./button";
+import ImageComponent from "./image";
 
 
 /*Basic Polaroid Card with mushroom image and border*/

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ButtonComponent from '../helperfunctions/button';
-import ImageComponent from '../helperfunctions/image';
+import ButtonComponent from '../../components/button';
+import ImageComponent from '../../components/image';
 
 /*Report Error Button*/
 

@@ -1,7 +1,7 @@
 import { DeathCapMushroom } from '@/data/development';
 import React, { useState } from 'react';
 import NavBar from '../../components/NavBar';
-import WarningMessage from '../helperfunctions/warning_message';
+import WarningMessage from '../../components/warning_message';
 
 /*Fast Facts Component*/
 

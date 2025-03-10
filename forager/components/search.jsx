@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import ButtonComponent from "../helperfunctions/button";
-import ImageComponent from "../helperfunctions/image";
+import ButtonComponent from "./button";
+import ImageComponent from "./image";
 
 /*
 Low Fidelity:
@@ -18,7 +18,7 @@ Parts:
 
 
 /*Basic Polaroid Card with mushroom image and border*/
-const SearchBarComponent = ({ buttonValues, searchStateValues }) => {
+const Search = ({ buttonValues, searchStateValues }) => {
     const [tempInput, setTempInput] = useState(""); // Local state to track user typing
 
     const searchButtonStyle = "w-5 h-5";
@@ -68,4 +68,4 @@ const SearchBarComponent = ({ buttonValues, searchStateValues }) => {
     );
 };
 
-export default SearchBarComponent;
+export default Search;

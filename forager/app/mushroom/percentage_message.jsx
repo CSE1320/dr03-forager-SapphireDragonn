@@ -1,6 +1,6 @@
 import React from "react";
-import ImageComponent from "../helperfunctions/image";
-import ButtonComponent from "../helperfunctions/button";
+import ImageComponent from "../../components/image";
+import ButtonComponent from "../../components/button";
 
 const PercentageMessage = ({ msgBody, closable }) => {
     const iconStyling2="w-7 h-7";

@@ -2,20 +2,21 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import NavBar from '../../components/NavBar';
-import WarningMessage from '../helperfunctions/warning_message';
-import PolaroidCard from '../helperfunctions/basic_polaroid';
-import PolaroidMushroomMatch from '../helperfunctions/polaroid_mushroom_match';
-import MainPolaroidComponent from '../helperfunctions/main_polaroid_for_page';
-import PercentageMatchComponent from '../helperfunctions/percentage_match';
+import WarningMessage from '../../components/warning_message';
+import PolaroidCard from '../../components/mushroom_card';
+import PolaroidMushroomMatch from '../../components/polaroid_mushroom_match';
+import MainPolaroidComponent from '../../components/main_polaroid_for_page';
+import PercentageMatchComponent from '../../components/percentage_match';
 import FastFactsComponent from './fast_facts';
 import ReportErrorButton from './report_error';
 import CompareButton from './compare';
 import AddToFavoritesButton from './add_to_favorites';
-import PageHeader from '../helperfunctions/page_header';
-import ButtonComponent from '../helperfunctions/button';
-import ImageComponent from '../helperfunctions/image';
+import PageHeader from '../../components/page_header';
+import ButtonComponent from '../../components/button';
+import ImageComponent from '../../components/image';
 import PercentageMessage from './percentage_message';
-import MushroomList from '../helperfunctions/mushroom_list';
+import MushroomList from '../../components/mushroom_list';
+import Mushroom from '../../components/mushroom';
 import { useMushroomContext } from '../context/MushroomContext';
 import { useRouter } from 'next/navigation';
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from '@/data/development';
@@ -140,50 +141,10 @@ export default function MushroomPage() {
             <CompareButton/>
           </Link>
         </div>
-
-        {/* Polaroid styling for Death Cap */}
-        <div className="flex justify-center pt-4">
-          <MainPolaroidComponent 
-            mushroomSrc={mushroom1} 
-            percentage="50" 
-            backgroundStyling="warningRed" 
-            isOnBorder={true} 
-            mushroomSizing="w-72 h-80"
-            cardSizing="w-80 h-96"/>
-        </div>
-
-
-        {/* Common and Scientific Mushroom Name and favorites button*/}
-        <div className="flex flex-row justify-between pt-4 pl-9 pr-9">
-          {/* Mushroom Names */}
-          <div className="flex flex-col">
-            <h1 className="text-black font-nunito text-2xl font-bold">
-              {DeathCapMushroom.names.commonName}
-            </h1>
-            <h1 className="text-black font-nunito text-xl italic">
-              {DeathCapMushroom.names.scientificName}
-            </h1>
-          </div>
-
-          {/* Favorites Button */}
-          <div className="pt-3">
-            <AddToFavoritesButton 
-              favoriteStateValues={[isFavorited, setFavorited]}
-            />
-          </div>
-        </div>
-
-        {/* Fast Facts About Mushroom */}
-        <div className="pt-6 flex justify-center">
-          <FastFactsComponent errorState={[isReportedError, setReportedError]}/>
-        </div>
-
-        {/* Mushroom General Description */}
-        <div className="flex pt-6 pl-9 pr-9 justify-center items-center">
-          <h1 className="text-black font-nunito text-md">
-            {DeathCapMushroom.characteristics.generalDescription}
-          </h1>
-        </div>
+    
+      <Mushroom
+        favoritedStateVals={[isFavorited, setFavorited]}
+        errorStateVals={[isReportedError, setReportedError]}/>
         
 
         {/* Similar Matches */}
