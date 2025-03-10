@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import ButtonComponent from "../../components/button";
 import ImageComponent from "../../components/image";
 import SearchBarComponent from "../../components/search";
@@ -107,15 +108,28 @@ const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, applied
 
             {/* Mushroom Matches for Filter */}
             <div className="pl-6 pr-6 pt-6 items-center justify-center align-center">
-                <ul className="flex flex-wrap gap-6">
+            <ul className="flex flex-wrap gap-6">
                     {relevantMushrooms().map((mushroom, index) => (
                         <div key={mushroom.names.scientificName + index} className="relative flex flex-col">
-                            <PolaroidCard
-                                mushroomSrc={mushroom.image}
-                                mushroomSizing={mushroomSize}
-                                cardSizing={cardSize}
-                                isOnBorder={false}
-                            />
+                            {/* Wrap DeathCapMushroom in a Link component to navigate to the DeathCap page */}
+                            {mushroom.names.commonName === "Death Cap" ? (
+                                <Link href="/mushroom">
+                                    <PolaroidCard
+                                        mushroomSrc={mushroom.image}
+                                        mushroomSizing={mushroomSize}
+                                        cardSizing={cardSize}
+                                        isOnBorder={false}
+                                    />
+                                </Link>
+                            ) : (
+                                <PolaroidCard
+                                    mushroomSrc={mushroom.image}
+                                    mushroomSizing={mushroomSize}
+                                    cardSizing={cardSize}
+                                    isOnBorder={false}
+                                />
+                            )}
+
                             {mushroom.isToxic && (
                                 <div className="absolute top-6 left-6">
                                     <ImageComponent
@@ -130,7 +144,6 @@ const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, applied
                             </h1>
                         </div>
                     ))}
-
                 </ul>
             </div>
             
