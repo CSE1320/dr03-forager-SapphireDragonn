@@ -18,6 +18,9 @@ export default function MushroomComparisonPage() {
 
   const[isClosable, setClosable] = useState(true);
   const[isComparisonGoBack, setComparisonGoBack] = useState(false)
+  const [yourMushroomInfo, setYourMushroomInfo] = useState([
+    "Flat", "Brown", "Smooth", "Free", "White", "Slender", "White", "Absent", "?"
+]);
   const percentageScaleStyle = { transform: "scale(0.3)" };
 
   const skullImageSrc="icons/icon_match_skull.svg"
@@ -113,8 +116,9 @@ export default function MushroomComparisonPage() {
           </div>
         </div>
 
-        <div className="flex justify-center pt-4 pb-20 pl-7 pr-7">
-          <ComparisonTable/>
+        <div className="flex justify-center pt-4 pb-20 pl-4 pr-4">
+          <ComparisonTable 
+            YourMushroomInfoState={[yourMushroomInfo, setYourMushroomInfo]}/>
         </div>
 
         <NavBar />

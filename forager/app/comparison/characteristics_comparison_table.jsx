@@ -1,8 +1,8 @@
-import react from "react";
+import React, { useState } from 'react';
 import { DeathCapMushroom } from "@/data/development";
 import ImageComponent from "../helperfunctions/image";
 
-const ComparisonTable = () => {
+const ComparisonTable = ({YourMushroomInfoState}) => {
     
     const DeathCapInfo=[DeathCapMushroom.characteristics.capShape,
                         DeathCapMushroom.characteristics.capColor,
@@ -13,9 +13,6 @@ const ComparisonTable = () => {
                         DeathCapMushroom.characteristics.stemColor,
                         DeathCapMushroom.characteristics.stemRing,
                         DeathCapMushroom.characteristics.habitat]
-
-    const YourMushroomInfo=["Flat", "Brown", "Smooth", "Free", "White",
-                            "Slender", "White", "Absent", "?"]
     
     const ComparisonCharacteristics=["Cap Shape", "Cap Color",
                                     "Cap Texture", "Gills Type",
@@ -30,27 +27,37 @@ const ComparisonTable = () => {
     const comparisonAlt="An icon to the left of each characteristic represented as a gray circle with a black x inside of it"
     const comparisonStyle="h-4 w-4"
 
+    // Handle user input change for each characteristic
+    const handleInputChange = (index, event) => {
+        const updatedInfo = [...YourMushroomInfoState[0]];
+        updatedInfo[index] = event.target.value;
+        YourMushroomInfoState[1](updatedInfo);
+    };
+
 
     return (
         <div className="flex bg-white shadow-md border w-full">
-            <div className="flex flex-row border-2 w-full">
+            <div className="flex flex-row border-2 w-full pt-4 pb-4">
                 {/* Your Photo Characteristics */}
                 <ul className="flex flex-col w-1/3 space-y-4 pl-2">
-                    {YourMushroomInfo.map((characteristic, index) => (
-                    <li key={index} className="flex flex-col w-full">
-                        <div className="flex flex-row items-center space-x-3">
-                            <ImageComponent 
-                                src={comparisonSrc} 
-                                alt={comparisonAlt} 
-                                styling={comparisonStyle}
-                            />
-                            <span className="text-black font-nunito text-md font-bold">
-                                {characteristic}
-                            </span>
-                        </div>
-                        {/* Horizontal Line Below */}
-                        <div className="border-t border-gray-700 w-5/6 mt-2"></div>
-                    </li>
+                    {YourMushroomInfoState[0].map((characteristic, index) => (
+                        <li key={index} className="flex flex-col w-full">
+                            <div className="flex flex-row items-center space-x-3">
+                                <ImageComponent 
+                                    src={comparisonSrc} 
+                                    alt={comparisonAlt} 
+                                    styling={comparisonStyle}
+                                />
+                                <input 
+                                    type="text" 
+                                    value={characteristic}
+                                    onChange={(e) => handleInputChange(index, e)}
+                                    className="text-black w-2/3 font-nunito text-sm font-bold bg-transparent"
+                                />
+                            </div>
+                            {/* Horizontal Line Below */}
+                            <div className="border-t border-gray-700 w-5/6 mt-2"></div>
+                        </li>
                     ))}
                 </ul>
 
@@ -60,11 +67,11 @@ const ComparisonTable = () => {
                 {/* Comparison Characteristics */}
                 <ul className="flex flex-col w-1/3 space-y-4">
                     {ComparisonCharacteristics.map((characteristic, index) => (
-                    <li key={index} className="flex flex-col items-center text-center w-full">
-                        <span className="text-black font-nunito text-md font-bold mb-2">
-                            {characteristic}
-                        </span>
-                    </li>
+                        <li key={index} className="flex flex-col items-center text-center w-full">
+                            <span className="text-black font-nunito text-sm font-bold mb-2">
+                                {characteristic}
+                            </span>
+                        </li>
                     ))}
                 </ul>
 
@@ -74,12 +81,11 @@ const ComparisonTable = () => {
                 {/* Death Cap Characteristics */}
                 <ul className="flex flex-col w-1/3 space-y-4">
                     {DeathCapInfo.map((characteristic, index) => (
-                    <li key={index} className="flex flex-col text-center w-full">
-                        {/* Icon + Title Row */}
-                        <span className="text-black font-nunito text-md font-bold mb-2">
-                            {characteristic}
-                        </span>
-                    </li>
+                        <li key={index} className="flex flex-col text-center w-full">
+                            <span className="text-black font-nunito text-sm font-bold mb-2">
+                                {characteristic}
+                            </span>
+                        </li>
                     ))}
                 </ul>
             </div>
