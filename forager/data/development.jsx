@@ -233,7 +233,7 @@ var DeathCapMushroom = {
     isToxic: true,
     image: "image/destroying_angel.png",
     percentageMatchToDeathCap: 0.8,
-    inMyCollection: false,
+    inMyCollection: true,
     characteristics: {
       capShape: "Flat",
       capDiameter: "5-12",
@@ -323,7 +323,7 @@ var DeathCapMushroom = {
     isToxic: false,
     image: "image/puffball.png",
     percentageMatchToDeathCap: 0.6,
-    inMyCollection: false,
+    inMyCollection: true,
     characteristics: {
       capShape: "Round",
       capDiameter: "5-15",

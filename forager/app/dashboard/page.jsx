@@ -28,7 +28,7 @@ export default function DashboardPage() {
   const[isFavoritesFilter, setFavoritesFilter] = useState(false)
   const[isRecentFilter, setRecentFilter] = useState(false)
   const[isTexasFilter, setTexasFilter] = useState(false)
-  const[isNorthAmericaFilter, setNorthAmericaFilter] = useState(true)
+  const[isNorthAmericaFilter, setNorthAmericaFilter] = useState(false)
   const[isSouthAmericaFilter, setSouthAmericaFilter] = useState(false)
   const[isAsiaFilter, setAsiaFilter] = useState(null)
   const[isEuropeFilter, setEuropeFilter] = useState(false)
