@@ -32,7 +32,7 @@ export default function MushroomPage() {
                                   mushroomSrc: PaddyStrawMushroom.image, 
                                   name: PaddyStrawMushroom.names.commonName,
                                   percentage: 90, 
-                                  backgroundStyling: "bg-green-500",
+                                  backgroundStyling: "backgroundGreen",
                                   isOnBorder: false,
                                   mushroomSizing: mushroomSize,
                                   cardSizing: cardSize},
@@ -41,7 +41,7 @@ export default function MushroomPage() {
                                   mushroomSrc: DestroyingAngelMushroom.image,
                                   name: DestroyingAngelMushroom.names.commonName, 
                                   percentage: 80, 
-                                  backgroundStyling: "bg-red-500",
+                                  backgroundStyling: "warningRed",
                                   isOnBorder: false,
                                   mushroomSizing: mushroomSize,
                                   cardSizing: cardSize},
@@ -50,7 +50,7 @@ export default function MushroomPage() {
                                   mushroomSrc: FalseDeathCapMushroom.image, 
                                   name: FalseDeathCapMushroom.names.commonName, 
                                   percentage: 70, 
-                                  backgroundStyling: "bg-red-500",
+                                  backgroundStyling: "warningRed",
                                   isOnBorder: false,
                                   mushroomSizing: mushroomSize,
                                   cardSizing: cardSize},
@@ -59,7 +59,7 @@ export default function MushroomPage() {
                                   mushroomSrc: PuffballMushroom.image, 
                                   name: PuffballMushroom.names.commonName,
                                   percentage: 60, 
-                                  backgroundStyling: "bg-green-500",
+                                  backgroundStyling: "backgroundGreen",
                                   isOnBorder: false,
                                   mushroomSizing: mushroomSize,
                                   cardSizing: cardSize}]
@@ -109,7 +109,7 @@ export default function MushroomPage() {
           <MainPolaroidComponent 
             mushroomSrc={mushroom1} 
             percentage="50" 
-            backgroundStyling="bg-red-500" 
+            backgroundStyling="warningRed" 
             isOnBorder={true} 
             mushroomSizing="w-72 h-80"
             cardSizing="w-80 h-96"/>

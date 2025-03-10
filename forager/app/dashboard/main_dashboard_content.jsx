@@ -8,7 +8,7 @@ import PolaroidCard from "../helperfunctions/basic_polaroid";
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from "@/data/development";
 
 const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, appliedFilters}) => {
-    const filterButtonBackground = "bg-green-500 w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
+    const filterButtonBackground = "backgroundGreen w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
     const mushroomSize="w-32 h-40"
     const cardSize="w-36 h-48"
 

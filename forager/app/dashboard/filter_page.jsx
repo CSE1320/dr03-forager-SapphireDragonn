@@ -18,8 +18,8 @@ const FilterPage = ({
     brothFilter
 }) => {
     // Define button styles
-    const SelectedButtonBackground = "bg-green-500 w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
-    const DeselectedButtonBackground = "bg-gray-500 w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
+    const SelectedButtonBackground = "backgroundGreen w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
+    const DeselectedButtonBackground = "backgroundGray w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
     const DisabledButtonBackground = "bg-black w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
 
     const closeButtonStyling = "w-6 h-6";

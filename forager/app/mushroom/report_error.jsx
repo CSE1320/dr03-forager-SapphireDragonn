@@ -10,7 +10,7 @@ export default function ReportErrorButton(errorState) {
     const reportStyling="h-5"
 
     return (
-    <div className="flex flex-row w-40 justify-between  h-auto bg-red-500 p-3 rounded-xl">
+    <div className="flex flex-row w-40 justify-between h-auto warningRed p-3 rounded-xl">
         <h1 className="font-nunito text-base font-bold text-white">
             Report Error
         </h1>

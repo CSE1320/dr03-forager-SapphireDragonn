@@ -13,7 +13,7 @@ export default function FastFactsComponent() {
     const textStyling="font-nunito text-base text-white"
     const textStylingBold="font-nunito text-base font-bold text-white pb-2"
     return (
-    <div className="flex align-center flex-col p-5 bg-amber-900 w-5/6 h-auto rounded-3xl">
+    <div className="flex align-center flex-col p-5 fastFactsRed w-5/6 h-auto rounded-3xl">
         <h1 className={textStylingBold}>
             Fast Facts
         </h1>

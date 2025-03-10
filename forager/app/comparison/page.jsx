@@ -28,7 +28,9 @@ export default function MushroomComparisonPage() {
         {/* Page Header */}
         <div className="overflow-hidden h-28 relative">
           <div className="absolute bottom-0 w-full">
-            <PageHeader HeaderStateValues={[isComparisonGoBack, setComparisonGoBack]} Text="Match Results" />
+            <PageHeader 
+              HeaderStateValues={[isComparisonGoBack, setComparisonGoBack]} 
+              Text="Match Results" />
           </div>
         </div>
       
@@ -70,7 +72,7 @@ export default function MushroomComparisonPage() {
                 <div style={percentageScaleStyle} className="-ml-16">
                   <PercentageMatchComponent 
                       percentage="97"
-                      backgroundStyling="bg-red-500" 
+                      backgroundStyling="warningRed" 
                       isOnBorder={true}/> 
                 </div>
               </div>

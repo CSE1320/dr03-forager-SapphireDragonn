@@ -8,7 +8,7 @@ const PageHeader = ({ HeaderStateValues, Text }) => {
     const backAlt = "A warning icon depicted as a white triangular icon with rounded corners with a white exclamation point inside.";
 
     return (
-        <div className="flex items-end bg-emerald-700 w-full h-56 pb-5 pl-6 pr-8 rounded-3xl">
+        <div className="flex items-end backgroundGreen w-full h-56 pb-5 pl-6 pr-8 rounded-3xl">
             <div className="flex w-full items-center justify-between">
                 <ButtonComponent    
                     isState={HeaderStateValues[0]} 
