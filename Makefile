@@ -2,9 +2,9 @@
 ####################### Makefile Template ##############################
 ########################################################################
 # Student settings
-NAME = YOURNAME
-SID = YOURSID
-EMAIL = YOURUTAEMAIL
+NAME = Gunnika Kapoor
+SID = 1002052101
+EMAIL = gxk2101@mavs.uta.edu
 SEMESTER = SPRING2025
 PROJECT=PROJ03
  

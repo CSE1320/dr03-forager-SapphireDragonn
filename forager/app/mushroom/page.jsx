@@ -15,6 +15,7 @@ import PageHeader from '../helperfunctions/page_header';
 import ButtonComponent from '../helperfunctions/button';
 import ImageComponent from '../helperfunctions/image';
 import PercentageMessage from './percentage_message';
+import MushroomList from '../helperfunctions/mushroom_list';
 import { useMushroomContext } from '../context/MushroomContext';
 import { useRouter } from 'next/navigation';
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from '@/data/development';
@@ -195,20 +196,7 @@ export default function MushroomPage() {
         {/* List of Mushroom Matches */}
         <div className="relative">
           <div className="justify-center flex pt-6 pb-20 w-full pl-9 pr-9">
-            <ul className="flex flex-wrap gap-6">
-              {MushroomMatchesArray.map(mushroom => (
-                <PolaroidMushroomMatch
-                  key={mushroom.id}
-                  mushroomSrc={mushroom.mushroomSrc}
-                  mushroomTitle={mushroom.name}
-                  percentage={mushroom.percentage}
-                  backgroundStyling={mushroom.backgroundStyling}
-                  isOnBorder={mushroom.isOnBorder}
-                  mushroomSizing={mushroom.mushroomSizing}
-                  cardSizing={mushroom.cardSizing}
-                />
-              ))}
-            </ul>
+            <MushroomList MushroomMatchesArray={MushroomMatchesArray}/>
           </div>
 
           {/* percentages Popup: Display the error popup only if it is set to "open" */}
