@@ -159,8 +159,8 @@ var DeathCapMushroom = {
     },
     filters: {
       tags: {
-        isFavorites: "",
-        isRecent: "",
+        isFavorites: "Yes",
+        isRecent: "Yes",
       },
       regions: {
         inTexas: "Yes",
