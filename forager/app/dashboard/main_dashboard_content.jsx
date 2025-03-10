@@ -75,7 +75,7 @@ const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, applied
 
 
     return (
-        <div className="page border-2 h-full w-full rounded-xl flex-col">
+        <div className="backgroundGray border-2 h-full pt-8 pb-8 w-full rounded-3xl flex-col">
             <div className="flex flex-row space-x-6 pl-6">
                 <SearchBarComponent 
                     buttonValues={[hitSearchValues[0], hitSearchValues[1]]} 
@@ -84,7 +84,7 @@ const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, applied
                     filterStateValues={[filterValues[0], filterValues[1]]}/>
             </div>
 
-            <h1 className="text-black font-bold font-nunito text-xl pl-6 pt-12">
+            <h1 className="text-black font-bold font-nunito text-xl pl-6 pt-8">
                 My Collection
             </h1>
 
@@ -103,28 +103,29 @@ const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, applied
             {/* Mushroom Matches for Filter */}
             <div className="pl-6 pr-6 pt-6 items-center justify-center align-center">
                 <ul className="flex flex-wrap gap-6">
-                    {relevantMushrooms().map(mushroom => (
-                       <div className="relative flex flex-col">
+                    {relevantMushrooms().map((mushroom, index) => (
+                        <div key={mushroom.names.scientificName + index} className="relative flex flex-col">
                             <PolaroidCard
-                                key={mushroom.names.scientificName}
                                 mushroomSrc={mushroom.image}
                                 mushroomSizing={mushroomSize}
                                 cardSizing={cardSize}
                                 isOnBorder={false}
                             />
-                            {(mushroom.isToxic && <div className="absolute top-6 left-6">
-                                <ImageComponent
-                                    styling={warningStyling}
-                                    src={warningSrc}
-                                    alt={warningAlt}/>
-                            </div>)}
+                            {mushroom.isToxic && (
+                                <div className="absolute top-6 left-6">
+                                    <ImageComponent
+                                        styling={warningStyling}
+                                        src={warningSrc}
+                                        alt={warningAlt}
+                                    />
+                                </div>
+                            )}
                             <h1 className="text-black font-bold font-nunito text-center text-md pt-2">
                                 {mushroom.names.commonName}
                             </h1>
-
-                       </div> 
-                        
+                        </div>
                     ))}
+
                 </ul>
             </div>
             

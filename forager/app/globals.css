@@ -27,3 +27,31 @@ html, body{
   height: 100%; 
   width: 100%;
 } */
+
+.warningRed {
+  background-color: #FF5050;
+}
+
+.fastFactsRed {
+  background-color: #8E4A49;
+}
+
+.safetyGreen {
+  background-color: #6BC591;
+}
+
+.backgroundGreen {
+  background-color: #579076;
+}
+
+.backgroundGray {
+  background-color: #F2F2F2;
+}
+
+.dashboardGreen {
+  background-color: #397367;
+}
+
+.profileBrown {
+  background-color: #5F464B;
+}

@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import FilterComponent from './filter_button';
 import FilterPage from './filter_page';
 import MainDashboardPage from './main_dashboard_content';
+import ImageComponent from '../helperfunctions/image';
 
 /* 
 Filter button when clicked should have a state that when clicked is set to open
@@ -13,6 +14,10 @@ When the filter page pops up and is closed, SAME STATE should be set to closed
 */
 
 export default function DashboardPage() {
+
+  const mushroomStyling="w-50 h-50"
+  const mushroomSrc="icons/icon_dashboard_mushroom.svg"
+  const mushroomAlt="A slightly angled green mushroom with three transparent holes in the mushroom cap and a thick stem."
   
   const[isClicked, setClicked] = useState(true);
   const [searchInput, setSearchInput] = useState("");
@@ -71,37 +76,66 @@ export default function DashboardPage() {
   ]);
   
   return (
-    <div className="page">
-      <div className="pt-6">
-        <MainDashboardPage 
-          filterValues={[closeFilterIsClicked, setCloseFilterClicked]}
-          searchValues={[searchInput, setSearchInput]}
-          hitSearchValues={[isSearched, setSearched]}
-          appliedFilters={appliedFilters} />
+    <div className="dashboardGreen relative flex flex-col w-full h-full">
+      <NavBar/>
+
+      <div className="absolute right-0 z-0">
+        <ImageComponent
+          styling={mushroomStyling}
+          src={mushroomSrc}
+          alt={mushroomAlt}/>
       </div>
 
-      {!closeFilterIsClicked && (
-        <div className="absolute flex align-center w-full h-full bg-white bg-opacity-10 backdrop-blur-lg ">
-          <div className=" relative flex justify-center align-center h-screen pt-6 pb-36 pl-4 pr-4">
-              <FilterPage 
-                closeButtonState={[closeFilterIsClicked, setCloseFilterClicked]}
-                favoritesFilter={[isFavoritesFilter, setFavoritesFilter]}
-                recentFilter={[isRecentFilter, setRecentFilter]}
-                texasFilter={[isTexasFilter, setTexasFilter]}
-                northAmericaFilter={[isNorthAmericaFilter, setNorthAmericaFilter]}
-                southAmericaFilter={[isSouthAmericaFilter, setSouthAmericaFilter]}
-                asiaFilter={[isAsiaFilter, setAsiaFilter]}
-                europeFilter={[isEuropeFilter, setEuropeFilter]}
-                africaFilter={[isAfricaFilter, setAfricaFilter]}
-                poisonousFilter={[isPoisonousFilter, setPoisonousFilter]}
-                medicinalFilter={[isMedicinalFilter, setMedicinalFilter]}
-                mythicalFilter={[isMythicalFilter, setMythicalFilter]}
-                brothFilter={[isBrothFilter, setBrothFilter]}/>
-          </div>
-        </div>
-      )}
+      <div className="z-10">
+        <h1 className="text-white font-bold font-nunito text-xl pl-6 pt-12">
+          Hi,
+        </h1>
 
-      <NavBar />
+        <div className="flex flex-row pl-6 pr-6 pt-2 justify-between items-center align-center">
+          <h1 className="text-white font-bold font-nunito text-4xl">
+            Chantelle!
+          </h1>
+
+          <div className="flex items-center justify-center h-12 w-12 profileBrown rounded-full">
+            <h1 className="text-white font-nunito text-2xl">
+              C
+            </h1>
+          </div>
+
+        </div>
+
+        <div className="pt-6 pb-20">
+          <MainDashboardPage 
+            filterValues={[closeFilterIsClicked, setCloseFilterClicked]}
+            searchValues={[searchInput, setSearchInput]}
+            hitSearchValues={[isSearched, setSearched]}
+            appliedFilters={appliedFilters} />
+        </div>
+
+        {!closeFilterIsClicked && (
+          <div className="absolute flex align-center w-full h-full bg-white bg-opacity-10 backdrop-blur-lg ">
+            <div className=" relative flex justify-center align-center h-screen pt-6 pb-36 pl-4 pr-4">
+                <FilterPage 
+                  closeButtonState={[closeFilterIsClicked, setCloseFilterClicked]}
+                  favoritesFilter={[isFavoritesFilter, setFavoritesFilter]}
+                  recentFilter={[isRecentFilter, setRecentFilter]}
+                  texasFilter={[isTexasFilter, setTexasFilter]}
+                  northAmericaFilter={[isNorthAmericaFilter, setNorthAmericaFilter]}
+                  southAmericaFilter={[isSouthAmericaFilter, setSouthAmericaFilter]}
+                  asiaFilter={[isAsiaFilter, setAsiaFilter]}
+                  europeFilter={[isEuropeFilter, setEuropeFilter]}
+                  africaFilter={[isAfricaFilter, setAfricaFilter]}
+                  poisonousFilter={[isPoisonousFilter, setPoisonousFilter]}
+                  medicinalFilter={[isMedicinalFilter, setMedicinalFilter]}
+                  mythicalFilter={[isMythicalFilter, setMythicalFilter]}
+                  brothFilter={[isBrothFilter, setBrothFilter]}/>
+            </div>
+          </div>
+        )}
+
+      </div>
+      
+
     </div>
       
   );
