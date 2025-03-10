@@ -55,3 +55,8 @@ html, body{
 .profileBrown {
   background-color: #5F464B;
 }
+
+.cameraErrorGray {
+  background-color: #9E9E9E;
+  opacity: 0.75;
+}

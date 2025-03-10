@@ -74,7 +74,7 @@ const PhotoSearchPage = () => {
 
   return (
     <div className="relative bg-white h-full w-full">
-      <ImageComponent className={imageClassName} src={imageSrc} alt={imageAlt}/>
+      <ImageComponent styling={imageClassName} src={imageSrc} alt={imageAlt}/>
 
       <div className="absolute w-full top-0 left-0">
         <PhotoTopMenuPage/>
