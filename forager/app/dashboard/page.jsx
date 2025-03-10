@@ -104,7 +104,7 @@ export default function DashboardPage() {
 
         </div>
 
-        <div className="pt-6 pb-20">
+        <div className="pt-6 pb-20 h-full">
           <MainDashboardPage 
             filterValues={[closeFilterIsClicked, setCloseFilterClicked]}
             searchValues={[searchInput, setSearchInput]}
@@ -113,8 +113,8 @@ export default function DashboardPage() {
         </div>
 
         {!closeFilterIsClicked && (
-          <div className="absolute flex align-center w-full h-full bg-white bg-opacity-10 backdrop-blur-lg ">
-            <div className=" relative flex justify-center align-center h-screen pt-6 pb-36 pl-4 pr-4">
+          <div className="absolute top-16 -left-2 flex align-center w-full h-full">
+            <div className=" relative flex justify-center align-center h-full pt-6 pb-36 pl-4 pr-4">
                 <FilterPage 
                   closeButtonState={[closeFilterIsClicked, setCloseFilterClicked]}
                   favoritesFilter={[isFavoritesFilter, setFavoritesFilter]}

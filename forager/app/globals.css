@@ -60,3 +60,7 @@ html, body{
   background-color: #9E9E9E;
   opacity: 0.75;
 }
+
+.filterGray {
+  background-color: #D9D9D9;
+}

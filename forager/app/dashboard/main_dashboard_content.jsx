@@ -26,52 +26,57 @@ const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, applied
           PuffballMushroom,
         ];
     
-        // Filter mushrooms based on the applied filters
-        let filteredMushrooms = mushrooms.filter((mushroom) => {
-          return appliedFilters.every((filter) => {
-            const { id } = filter;
-            switch (id) {
-              case "favorites":
-                return mushroom.filters.tags.isFavorites === "Yes";
-              case "recent":
-                return mushroom.filters.tags.isRecent === "Yes";
-              case "texas":
-                return mushroom.filters.regions.inTexas === "Yes";
-              case "northAmerica":
-                return mushroom.filters.regions.inNorthAmerica === "Yes";
-              case "southAmerica":
-                return mushroom.filters.regions.inSouthAmerica === "Yes";
-              case "asia":
-                return mushroom.filters.regions.inAsia === "Yes";
-              case "europe":
-                return mushroom.filters.regions.inEurope === "Yes";
-              case "africa":
-                return mushroom.filters.regions.inAfrica === "Yes";
-              case "poisonous":
-                return mushroom.filters.category.isPoisonous === "Yes";
-              case "medicinal":
-                return mushroom.filters.category.isMedicinal === "Yes";
-              case "mythical":
-                return mushroom.filters.category.isMythical === "Yes";
-              case "broth":
-                return mushroom.filters.category.isGoodForBroths === "Yes";
-              default:
-                return true;
-            }
-          });
-        });
+        // If no filters are applied, return all mushrooms
+        let filteredMushrooms = mushrooms.filter((mushroom) => mushroom.inMyCollection);
+
+        if (appliedFilters.length > 0) {
+            filteredMushrooms = mushrooms.filter((mushroom) => {
+                return appliedFilters.some((filter) => {
+                    const { id } = filter;
+                    switch (id) {
+                        case "favorites":
+                            return mushroom.filters.tags.isFavorites === "Yes" && mushroom.inMyCollection === true;
+                        case "recent":
+                            return mushroom.filters.tags.isRecent === "Yes" && mushroom.inMyCollection === true;
+                        case "texas":
+                            return mushroom.filters.regions.inTexas === "Yes" && mushroom.inMyCollection === true;
+                        case "northAmerica":
+                            return mushroom.filters.regions.inNorthAmerica === "Yes" && mushroom.inMyCollection === true;
+                        case "southAmerica":
+                            return mushroom.filters.regions.inSouthAmerica === "Yes" && mushroom.inMyCollection === true;
+                        case "asia":
+                            return mushroom.filters.regions.inAsia === "Yes" && mushroom.inMyCollection === true;
+                        case "europe":
+                            return mushroom.filters.regions.inEurope === "Yes" && mushroom.inMyCollection === true;
+                        case "africa":
+                            return mushroom.filters.regions.inAfrica === "Yes" && mushroom.inMyCollection === true;
+                        case "poisonous":
+                            return mushroom.filters.category.isPoisonous === "Yes" && mushroom.inMyCollection === true;
+                        case "medicinal":
+                            return mushroom.filters.category.isMedicinal === "Yes" && mushroom.inMyCollection === true;
+                        case "mythical":
+                            return mushroom.filters.category.isMythical === "Yes" && mushroom.inMyCollection === true;
+                        case "broth":
+                            return mushroom.filters.category.isGoodForBroths === "Yes" && mushroom.inMyCollection === true;
+                        default:
+                            return true;
+                    }
+                });
+            });
+        }
     
-        // If there is search input, filter mushrooms based on the title (case insensitive)
+        // Apply the search term filter
         if (searchValues[0]) {
-          filteredMushrooms = filteredMushrooms.filter((mushroom) => 
-            mushroom.names.commonName.toLowerCase().includes(searchValues[0].toLowerCase()) 
-        //   ||
-        //     mushroom.names.scientificName.toLowerCase().includes(searchValues[0].toLowerCase())
-          );
+            filteredMushrooms = filteredMushrooms.filter((mushroom) => 
+                mushroom.names.commonName.toLowerCase().includes(searchValues[0].toLowerCase()) 
+            // ||
+                // mushroom.names.scientificName.toLowerCase().includes(searchValues[0].toLowerCase())
+            );
         }
     
         return filteredMushrooms;
     };
+  
 
 
     return (

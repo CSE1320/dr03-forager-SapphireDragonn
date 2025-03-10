@@ -12,20 +12,43 @@ import ReportErrorButton from './report_error';
 import CompareButton from './compare';
 import AddToFavoritesButton from './add_to_favorites';
 import PageHeader from '../helperfunctions/page_header';
+import ButtonComponent from '../helperfunctions/button';
+import ImageComponent from '../helperfunctions/image';
+import PercentageMessage from './percentage_message';
 import { useMushroomContext } from '../context/MushroomContext';
+import { useRouter } from 'next/navigation';
 import { DeathCapMushroom, PaddyStrawMushroom, DestroyingAngelMushroom, FalseDeathCapMushroom, PuffballMushroom } from '@/data/development';
 
 export default function MushroomPage() {
   const[isClosable, setClosable] = useState(true);
+  const[isClosablePercentage, setClosablePercentage] = useState(true);
   const[isReportedError, setReportedError] = useState(false);
   const[isFavorited, setFavorited] = useState(false)
   const[isMatchGoBack, setMatchGoBack] = useState(false)
+
+  // Use the previous page from context
+  const { previousPage } = useMushroomContext();
+  const router = useRouter();
+
+  const handleGoBack = () => {
+    if (previousPage) {
+      router.push(previousPage); // Navigate to last visited page
+    } else {
+      router.push("/dashboard"); // Default to dashboard if no previous page
+    }
+  };
 
   //To add to Collection
   const { mushrooms, toggleCollection } = useMushroomContext();
 
   const mushroomSize="w-32 h-40"
   const cardSize="w-36 h-48"
+  const percentageMessageStyling={ top: '30%'}
+
+  const backStyling = "w-8"; // Correct width for the back arrow icon
+  const backSrc = "icons/icon_back_arrow.svg";
+  const backAlt = "A warning icon depicted as a white triangular icon with rounded corners with a white exclamation point inside.";
+
 
   const MushroomMatchesArray = [{
                                   id: PaddyStrawMushroom.names.scientificName,
@@ -76,7 +99,20 @@ export default function MushroomPage() {
         {/* Page Header */}
         <div className="overflow-hidden h-28 relative">
           <div className="absolute bottom-0 w-full">
-            <PageHeader HeaderStateValues={[isMatchGoBack, setMatchGoBack]} Text="Match Results" />
+            <PageHeader 
+              Text="Match Results">
+                  <Link href={previousPage || "/dashboard"}>
+                    <ButtonComponent    
+                          isState={isMatchGoBack} 
+                          setState={setMatchGoBack} 
+                          styling={backStyling}
+                          stateValues={[true, false]}>
+                          <ImageComponent 
+                              src={backSrc} 
+                              alt={backAlt} />
+                      </ButtonComponent>
+                  </Link>
+              </PageHeader>
           </div>
         </div>
 
@@ -157,22 +193,40 @@ export default function MushroomPage() {
         </div>
         
         {/* List of Mushroom Matches */}
-        <div className="justify-center flex pt-6 pb-20 w-full pl-9 pr-9">
-          <ul className="flex flex-wrap gap-6">
-            {MushroomMatchesArray.map(mushroom => (
-              <PolaroidMushroomMatch
-                key={mushroom.id}
-                mushroomSrc={mushroom.mushroomSrc}
-                mushroomTitle={mushroom.name}
-                percentage={mushroom.percentage}
-                backgroundStyling={mushroom.backgroundStyling}
-                isOnBorder={mushroom.isOnBorder}
-                mushroomSizing={mushroom.mushroomSizing}
-                cardSizing={mushroom.cardSizing}
-              />
-            ))}
-          </ul>
+        <div className="relative">
+          <div className="justify-center flex pt-6 pb-20 w-full pl-9 pr-9">
+            <ul className="flex flex-wrap gap-6">
+              {MushroomMatchesArray.map(mushroom => (
+                <PolaroidMushroomMatch
+                  key={mushroom.id}
+                  mushroomSrc={mushroom.mushroomSrc}
+                  mushroomTitle={mushroom.name}
+                  percentage={mushroom.percentage}
+                  backgroundStyling={mushroom.backgroundStyling}
+                  isOnBorder={mushroom.isOnBorder}
+                  mushroomSizing={mushroom.mushroomSizing}
+                  cardSizing={mushroom.cardSizing}
+                />
+              ))}
+            </ul>
+          </div>
+
+          {/* percentages Popup: Display the error popup only if it is set to "open" */}
+          {isClosablePercentage && (
+            <div 
+              className="absolute inset-x-0 top-0 flex justify-center items-center z-50" 
+              style={percentageMessageStyling} // Using percentage to position the message
+            >
+              <div className="relative flex justify-center items-center">
+                <PercentageMessage
+                  msgBody={"Percentages indicate lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                  closable={[true, isClosablePercentage, setClosablePercentage]}
+                />
+              </div>
+            </div>
+          )}
         </div>
+        
             
             
         <NavBar />
@@ -189,6 +243,8 @@ export default function MushroomPage() {
             </div>
           </div>
         )}
+
+        
 
       </div>
     </div>

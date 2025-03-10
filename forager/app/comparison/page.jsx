@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import NavBar from '../../components/NavBar';
 import WarningMessage from '../helperfunctions/warning_message';
 import PageHeader from '../helperfunctions/page_header';
+import ButtonComponent from '../helperfunctions/button';
+import Link from 'next/link';
 import MainPolaroidComponent from '../helperfunctions/main_polaroid_for_page';
 import PolaroidMushroomMatch from '../helperfunctions/polaroid_mushroom_match';
 import PolaroidCard from '../helperfunctions/basic_polaroid';
@@ -22,17 +24,36 @@ export default function MushroomComparisonPage() {
   const skullImageAlt="A danger icon represented as a gray skull with darker gray eye sockets."
   const skullImageStyling="h-3 w-3"
 
+  const backStyling = "w-8"; // Correct width for the back arrow icon
+  const backSrc = "icons/icon_back_arrow.svg";
+  const backAlt = "A warning icon depicted as a white triangular icon with rounded corners with a white exclamation point inside.";
+
+
   return (
     <div className="page">
       <div>
         {/* Page Header */}
         <div className="overflow-hidden h-28 relative">
           <div className="absolute bottom-0 w-full">
-            <PageHeader 
-              HeaderStateValues={[isComparisonGoBack, setComparisonGoBack]} 
-              Text="Match Results" />
+            <PageHeader  
+              Text="Compare">
+              <Link href="/mushroom">
+                <ButtonComponent    
+                      isState={isComparisonGoBack} 
+                      setState={setComparisonGoBack} 
+                      styling={backStyling}
+                      stateValues={[true, false]}>
+                      <ImageComponent 
+                          src={backSrc} 
+                          alt={backAlt} />
+                  </ButtonComponent>
+              </Link>
+                
+              </PageHeader>
           </div>
         </div>
+
+        
       
       
 

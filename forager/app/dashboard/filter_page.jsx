@@ -19,7 +19,7 @@ const FilterPage = ({
 }) => {
     // Define button styles
     const SelectedButtonBackground = "backgroundGreen w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
-    const DeselectedButtonBackground = "backgroundGray w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
+    const DeselectedButtonBackground = "filterGray w-auto pl-3 pr-3 rounded-2xl text-black font-nunito text-md";
     const DisabledButtonBackground = "bg-black w-auto pl-3 pr-3 rounded-2xl text-white font-nunito text-md";
 
     const closeButtonStyling = "w-6 h-6";
@@ -49,7 +49,7 @@ const FilterPage = ({
     ];
 
     return (
-        <div className="flex flex-col bg-white rounded-lg h-full w-full border-2">
+        <div className="flex flex-col bg-white rounded-3xl h-full w-full border-2">
             {/* Filter Heading */}
             <div className="flex items-center justify-between w-full pl-6 pr-8  pt-4">
                 <div className="flex-1 flex justify-center">
