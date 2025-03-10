@@ -19,48 +19,58 @@ const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, applied
     // Function to filter mushrooms based on selected filters
     const relevantMushrooms = () => {
         const mushrooms = [
-            DeathCapMushroom,
-            PaddyStrawMushroom,
-            DestroyingAngelMushroom,
-            FalseDeathCapMushroom,
-            PuffballMushroom,
+          DeathCapMushroom,
+          PaddyStrawMushroom,
+          DestroyingAngelMushroom,
+          FalseDeathCapMushroom,
+          PuffballMushroom,
         ];
-
-        // Filter mushrooms based on the applied filters (only one filter match is needed)
-        return mushrooms.filter((mushroom) => {
-            // Check if any applied filter matches the mushroom's filter
-            return appliedFilters.some((filter) => {
-                const { id } = filter;
-                switch (id) {
-                    case "favorites":
-                        return mushroom.filters.tags.isFavorites === "Yes";
-                    case "recent":
-                        return mushroom.filters.tags.isRecent === "Yes";
-                    case "texas":
-                        return mushroom.filters.regions.inTexas === "Yes";
-                    case "northAmerica":
-                        return mushroom.filters.regions.inNorthAmerica === "Yes";
-                    case "southAmerica":
-                        return mushroom.filters.regions.inSouthAmerica === "Yes";
-                    case "asia":
-                        return mushroom.filters.regions.inAsia === "Yes";
-                    case "europe":
-                        return mushroom.filters.regions.inEurope === "Yes";
-                    case "africa":
-                        return mushroom.filters.regions.inAfrica === "Yes";
-                    case "poisonous":
-                        return mushroom.filters.category.isPoisonous === "Yes";
-                    case "medicinal":
-                        return mushroom.filters.category.isMedicinal === "Yes";
-                    case "mythical":
-                        return mushroom.filters.category.isMythical === "Yes";
-                    case "broth":
-                        return mushroom.filters.category.isGoodForBroths === "Yes";
-                    default:
-                        return false;
-                }
-            });
+    
+        // Filter mushrooms based on the applied filters
+        let filteredMushrooms = mushrooms.filter((mushroom) => {
+          return appliedFilters.every((filter) => {
+            const { id } = filter;
+            switch (id) {
+              case "favorites":
+                return mushroom.filters.tags.isFavorites === "Yes";
+              case "recent":
+                return mushroom.filters.tags.isRecent === "Yes";
+              case "texas":
+                return mushroom.filters.regions.inTexas === "Yes";
+              case "northAmerica":
+                return mushroom.filters.regions.inNorthAmerica === "Yes";
+              case "southAmerica":
+                return mushroom.filters.regions.inSouthAmerica === "Yes";
+              case "asia":
+                return mushroom.filters.regions.inAsia === "Yes";
+              case "europe":
+                return mushroom.filters.regions.inEurope === "Yes";
+              case "africa":
+                return mushroom.filters.regions.inAfrica === "Yes";
+              case "poisonous":
+                return mushroom.filters.category.isPoisonous === "Yes";
+              case "medicinal":
+                return mushroom.filters.category.isMedicinal === "Yes";
+              case "mythical":
+                return mushroom.filters.category.isMythical === "Yes";
+              case "broth":
+                return mushroom.filters.category.isGoodForBroths === "Yes";
+              default:
+                return true;
+            }
+          });
         });
+    
+        // If there is search input, filter mushrooms based on the title (case insensitive)
+        if (searchValues[0]) {
+          filteredMushrooms = filteredMushrooms.filter((mushroom) => 
+            mushroom.names.commonName.toLowerCase().includes(searchValues[0].toLowerCase()) 
+        //   ||
+        //     mushroom.names.scientificName.toLowerCase().includes(searchValues[0].toLowerCase())
+          );
+        }
+    
+        return filteredMushrooms;
     };
 
 
@@ -96,7 +106,7 @@ const MainDashboardPage = ({filterValues, searchValues, hitSearchValues, applied
                     {relevantMushrooms().map(mushroom => (
                        <div className="relative flex flex-col">
                             <PolaroidCard
-                                key={mushroom.id}
+                                key={mushroom.names.scientificName}
                                 mushroomSrc={mushroom.image}
                                 mushroomSizing={mushroomSize}
                                 cardSizing={cardSize}
